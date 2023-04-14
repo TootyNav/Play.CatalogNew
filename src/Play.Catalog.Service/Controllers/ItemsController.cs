@@ -34,7 +34,22 @@ public class ItemsController : ControllerBase
         return item;
     }
 
+    // POST /items
+    [HttpPost]
+    public ActionResult<ItemDto> Post(CreateItemDto createItemDto)
+    {
+        var item = new ItemDto(
+            Id: Guid.NewGuid(),
+            Name: createItemDto.Name,
+            Description: createItemDto.Description,
+            Price: createItemDto.Price,
+            CreatedDate: DateTimeOffset.UtcNow
+        );
 
+        items.Add(item);
+
+        return CreatedAtAction(nameof(GetById), new { id = item.Id }, item);
+    }
 
 
 
