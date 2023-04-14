@@ -2,3 +2,6 @@
 **/obj/*
 src/Play.Catalog.Service/bin/*
 src/Play.Catalog.Service/obj/*
+
+bin/
+obj/

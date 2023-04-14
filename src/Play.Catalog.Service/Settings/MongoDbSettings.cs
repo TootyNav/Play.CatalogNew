@@ -1,0 +1,9 @@
+namespace Play.Catalog.Settings;
+
+public class MongoDbSettings
+{
+    public string Host { get; init; }
+    public int Port { get; init; }
+
+    public string COnnectionString => $"mongodb://{Host}:{Port}";
+}
