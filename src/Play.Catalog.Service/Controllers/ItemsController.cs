@@ -51,9 +51,45 @@ public class ItemsController : ControllerBase
         return CreatedAtAction(nameof(GetById), new { id = item.Id }, item);
     }
 
+    // PUT /items/{id}
+    [HttpPut("{id}")]
+    public IActionResult Put(Guid id, UpdateItemDto updateItemDto)
+    {
+        var existingItem = items.Find(x => x.Id == id);
 
+        if (existingItem == null)
+        {
+            return NotFound();
+        }
 
+        var updateItem = existingItem with
+        {
+            Name = updateItemDto.Name,
+            Description = updateItemDto.Description,
+            Price = updateItemDto.Price,
+        };
 
+        var itemIndex = items.IndexOf(existingItem);
+        items[itemIndex] = updateItem;
+
+        return NoContent();
+    }
+
+    // DELETE /items/{id}
+    [HttpDelete("{id}")]
+    public IActionResult Delete(Guid id)
+    {
+        var item = items.Find(x => x.Id == id);
+
+        if (item == null)
+        {
+            return NotFound();
+        }
+
+        items.Remove(item);
+
+        return NoContent();
+    }
 
 
     // private readonly IItemsRepository itemsRepository;
