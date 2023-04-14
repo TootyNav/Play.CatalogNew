@@ -5,3 +5,5 @@ src/Play.Catalog.Service/obj/*
 
 bin/
 obj/
+**/bin/
+**/obj/

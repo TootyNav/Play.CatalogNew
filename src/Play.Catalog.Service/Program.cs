@@ -5,10 +5,9 @@ using MongoDB.Driver;
 using Play.Catalog.Service.Repositories;
 using Play.Catalog.Settings;
 
-var serviceSettings = new ServiceSettings();
 var builder = WebApplication.CreateBuilder(args);
 
-serviceSettings = builder.Configuration.GetSection(nameof(ServiceSettings)).Get<ServiceSettings>();
+var serviceSettings = builder.Configuration.GetSection(nameof(ServiceSettings)).Get<ServiceSettings>();
 
 builder.Services.AddSingleton(serviceProvider =>
 {
@@ -19,6 +18,7 @@ builder.Services.AddSingleton(serviceProvider =>
 
 builder.Services.AddSingleton<IItemsRepository, ItemsRepository>();
 
+//Change guid and date to readable string in mango db
 BsonSerializer.RegisterSerializer(new GuidSerializer(BsonType.String));
 BsonSerializer.RegisterSerializer(new DateTimeOffsetSerializer(BsonType.String));
 
