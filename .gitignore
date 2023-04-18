@@ -7,3 +7,9 @@ bin/
 obj/
 **/bin/
 **/obj/
+
+
+# Use the commands below to solve the debug and obj issue where tehy are not ignored
+#git rm -r --cached .
+#git add .
+#git commit -m ".gitignore is now working"
