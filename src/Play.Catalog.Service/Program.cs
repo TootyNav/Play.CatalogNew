@@ -2,6 +2,7 @@ using MongoDB.Bson;
 using MongoDB.Bson.Serialization;
 using MongoDB.Bson.Serialization.Serializers;
 using MongoDB.Driver;
+using Play.Catalog.Service.Entities;
 using Play.Catalog.Service.Repositories;
 using Play.Catalog.Settings;
 
@@ -16,7 +17,14 @@ builder.Services.AddSingleton(serviceProvider =>
     return mongoClient.GetDatabase(serviceSettings.ServiceName);
 });
 
-builder.Services.AddSingleton<IItemsRepository, ItemsRepository>();
+builder.Services.AddSingleton<IRepository<Item>>(serviceProvider =>
+    {
+        //you have to pass on databse  class implementation to mongorepository 
+        //this is how you get it from the service provider.
+        var database = serviceProvider.GetService<IMongoDatabase>();
+        return new MongoRepository<Item>(database, "Items");
+    }
+);
 
 //Change guid and date to readable string in mango db
 BsonSerializer.RegisterSerializer(new GuidSerializer(BsonType.String));
