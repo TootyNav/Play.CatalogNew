@@ -1,5 +1,10 @@
 # Play.CatalogNew
 
+micro services:
+Play.catalogNew --main
+Play.common
+
+
 generic repo
 mongodb
 dependancy injection
