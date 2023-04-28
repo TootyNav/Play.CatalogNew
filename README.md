@@ -1,5 +1,9 @@
 # Play.CatalogNew
 
+⌨️ (3:26:04) Introduction to Docker Compose
+
+
+
 micro services:
 Play.catalogNew --main
 Play.common
