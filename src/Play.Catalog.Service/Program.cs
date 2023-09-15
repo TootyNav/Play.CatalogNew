@@ -16,7 +16,7 @@ builder.Services.AddControllers(options =>
 builder.Services.AddMongo()
     .AddMongoRepository<Item>("items");
 
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+/// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
