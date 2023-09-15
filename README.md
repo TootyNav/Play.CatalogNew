@@ -7,7 +7,7 @@
 micro services:
 Play.catalogNew -main
 Play.common
-Play.Infra - run docker
+Play.Infra - run docker for databse
 
 
 generic repo
@@ -17,4 +17,5 @@ dependancy injection
 appsettings classes
 program extension
 
-set up database: docker run -d --rm --name mango -p 27017:27017 -v mongodbdata:/data/db mongo
+mongo connection string:
+mongodb://localhost:27017
