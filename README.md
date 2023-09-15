@@ -7,6 +7,7 @@
 micro services:
 Play.catalogNew --main
 Play.common
+Play.Infra
 
 
 generic repo
