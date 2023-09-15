@@ -7,7 +7,7 @@
 micro services:
 Play.catalogNew -main
 Play.common
-Play.Infra - run docker for databse
+Play.Infra - run docker up for databse
 
 
 generic repo
