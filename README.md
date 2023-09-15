@@ -5,13 +5,14 @@
 
 
 micro services:
-Play.catalogNew --main
+Play.catalogNew -main
 Play.common
-Play.Infra
+Play.Infra - run docker
 
 
 generic repo
 mongodb
+docker and docker compose
 dependancy injection
 appsettings classes
 program extension
